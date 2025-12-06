@@ -1,0 +1,30 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+
+# Vercel
+.vercel/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Replit specific (not needed for Vercel)
+.replit
+replit.nix
+.upm/
+.cache/
+.config/
+.local/
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/

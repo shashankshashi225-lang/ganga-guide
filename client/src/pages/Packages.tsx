@@ -1,0 +1,291 @@
+import { useState } from "react";
+import { useLocation } from "wouter";
+import { useQuery } from "@tanstack/react-query";
+import type { Package } from "@shared/schema";
+import PackageCardFlip from "@/components/PackageCardFlip";
+import Navigation from "@/components/Navigation";
+import BottomNav from "@/components/BottomNav";
+import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+import BookingDialog from "@/components/BookingDialog";
+import FadeInSection from "@/components/FadeInSection";
+import { Badge } from "@/components/ui/badge";
+import { Filter, Ship, Building2, Waves, PersonStanding, Building, Castle, Sparkles, Anchor } from "lucide-react";
+import ActivitiesSection from "@/components/ActivitiesSection";
+
+export default function Packages() {
+  const [, setLocation] = useLocation();
+  const [bookingDialogOpen, setBookingDialogOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [durationFilter, setDurationFilter] = useState<string>("all");
+  const [destinationFilter, setDestinationFilter] = useState<string>("all");
+
+  const { data: apiPackages, isLoading } = useQuery<Package[]>({
+    queryKey: ['/api/packages'],
+  });
+
+  const handleWhatsApp = (packageName?: string) => {
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "918468003094";
+    const message = packageName
+      ? `Hi, I'm interested in the ${packageName} package. Can you share details?`
+      : "Hi, I'm interested in booking a GangaGuides tour. Can you share details?";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
+  const handleBookNow = (packageName: string) => {
+    setSelectedPackage(packageName);
+    setBookingDialogOpen(true);
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const packages = apiPackages || [];
+
+  const filteredPackages = packages.filter(pkg => {
+    const categoryMatch = categoryFilter === "all" ||
+      ('category' in pkg && pkg.category === categoryFilter);
+    const durationMatch = durationFilter === "all" || pkg.duration.includes(durationFilter);
+    const destinationMatch = destinationFilter === "all" ||
+      ('destination' in pkg && pkg.destination === destinationFilter);
+    return categoryMatch && durationMatch && destinationMatch;
+  });
+
+  const popularEvents = filteredPackages.filter(pkg =>
+    'category' in pkg && pkg.category === 'popular_event'
+  );
+  const touristicPackages = filteredPackages.filter(pkg =>
+    'category' in pkg && pkg.category === 'touristic'
+  );
+  const poojaPackages = filteredPackages.filter(pkg =>
+    'category' in pkg && pkg.category === 'pooja'
+  );
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-lg text-muted-foreground">Loading packages...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen pb-20">
+      <Navigation onBookNowClick={() => scrollToSection("contact")} />
+
+      <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <FadeInSection>
+            <div className="text-center mb-12">
+              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Our Spiritual Journeys
+              </h1>
+              <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+                Explore all our packages - from popular events to spiritual experiences
+              </p>
+            </div>
+          </FadeInSection>
+
+
+
+          {/* Filters */}
+          <div className="flex flex-wrap gap-6 mb-12 justify-center">
+            <div className="flex items-center gap-2">
+              <Filter className="w-4 h-4 text-muted-foreground" />
+              <span className="text-sm font-medium">Filters:</span>
+            </div>
+
+            {/* Category Filters */}
+            <div className="flex flex-wrap gap-2">
+              <Badge
+                className={`cursor-pointer ${categoryFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setCategoryFilter("all")}
+                data-testid="filter-category-all"
+              >
+                All Categories
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${categoryFilter === "popular_event" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setCategoryFilter("popular_event")}
+                data-testid="filter-category-events"
+              >
+                Popular Events
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${categoryFilter === "touristic" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setCategoryFilter("touristic")}
+                data-testid="filter-category-tourist"
+              >
+                Tourist Packages
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${categoryFilter === "pooja" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setCategoryFilter("pooja")}
+                data-testid="filter-category-pooja"
+              >
+                Pooja Packages
+              </Badge>
+            </div>
+
+            {/* Duration Filters */}
+            <div className="flex flex-wrap gap-2">
+              <Badge
+                className={`cursor-pointer ${durationFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDurationFilter("all")}
+                data-testid="filter-duration-all"
+              >
+                All Durations
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${durationFilter === "1 Day" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDurationFilter("1 Day")}
+                data-testid="filter-duration-1day"
+              >
+                1 Day
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${durationFilter === "2 Days" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDurationFilter("2 Days")}
+                data-testid="filter-duration-2days"
+              >
+                2 Days
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${durationFilter === "3 Days" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDurationFilter("3 Days")}
+                data-testid="filter-duration-3days"
+              >
+                3 Days
+              </Badge>
+            </div>
+
+            {/* Destination Filters */}
+            <div className="flex flex-wrap gap-2">
+              <Badge
+                className={`cursor-pointer ${destinationFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDestinationFilter("all")}
+                data-testid="filter-destination-all"
+              >
+                All Destinations
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${destinationFilter === "Varanasi" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDestinationFilter("Varanasi")}
+                data-testid="filter-destination-varanasi"
+              >
+                Varanasi
+              </Badge>
+              <Badge
+                className={`cursor-pointer ${destinationFilter === "Ayodhya" ? "bg-primary" : "bg-muted hover-elevate"}`}
+                onClick={() => setDestinationFilter("Ayodhya")}
+                data-testid="filter-destination-ayodhya"
+              >
+                Ayodhya
+              </Badge>
+            </div>
+          </div>
+
+          {/* Popular Events Section */}
+          {popularEvents.length > 0 && (
+            <div className="mb-16">
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
+                Popular Events
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-visible">
+                {popularEvents.map((pkg) => (
+                  <PackageCardFlip
+                    key={pkg.id}
+                    id={pkg.id}
+                    name={pkg.name}
+                    duration={pkg.duration}
+                    shortDescription={pkg.shortDescription}
+                    highlights={pkg.highlights}
+                    imageUrl={pkg.imageUrl}
+                    onBookNow={() => handleBookNow(pkg.name)}
+                    data-testid={`card-package-${pkg.id}`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Tourist Packages Section */}
+          {touristicPackages.length > 0 && (
+            <div className="mb-16">
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
+                Tourist Packages
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-visible">
+                {touristicPackages.map((pkg) => (
+                  <PackageCardFlip
+                    key={pkg.id}
+                    id={pkg.id}
+                    name={pkg.name}
+                    duration={pkg.duration}
+                    shortDescription={pkg.shortDescription}
+                    highlights={pkg.highlights}
+                    imageUrl={pkg.imageUrl}
+                    onBookNow={() => handleBookNow(pkg.name)}
+                    data-testid={`card-package-${pkg.id}`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Pooja Packages Section */}
+          {poojaPackages.length > 0 && (
+            <div className="mb-16">
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
+                Pooja Packages
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-visible">
+                {poojaPackages.map((pkg) => (
+                  <PackageCardFlip
+                    key={pkg.id}
+                    id={pkg.id}
+                    name={pkg.name}
+                    duration={pkg.duration}
+                    shortDescription={pkg.shortDescription}
+                    highlights={pkg.highlights}
+                    imageUrl={pkg.imageUrl}
+                    onBookNow={() => handleBookNow(pkg.name)}
+                    data-testid={`card-package-${pkg.id}`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Activities Section */}
+          <ActivitiesSection onBookNow={handleBookNow} />
+
+          {filteredPackages.length === 0 && (
+            <FadeInSection>
+              <div className="text-center py-16">
+                <p className="text-lg text-muted-foreground">
+                  No packages found matching your filters. Try adjusting your selection.
+                </p>
+              </div>
+            </FadeInSection>
+          )}
+        </div>
+
+        <BookingDialog
+          open={bookingDialogOpen}
+          onOpenChange={setBookingDialogOpen}
+          packageName={selectedPackage}
+        />
+      </section>
+
+      <Footer />
+      <BottomNav />
+      <WhatsAppFloat />
+    </div>
+  );
+}
