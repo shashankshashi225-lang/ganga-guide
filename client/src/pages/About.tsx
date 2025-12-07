@@ -3,6 +3,28 @@ import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FadeInSection from "@/components/FadeInSection";
+import SEO from "@/components/SEO";
+
+// LocalBusiness Schema for About page
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Ganga Guides Network",
+  "description": "Local tour guides offering authentic spiritual tours in Varanasi, Ayodhya, Sarnath and Prayagraj",
+  "url": "https://gangaguide.com/about",
+  "telephone": "+91-84680-03094",
+  "email": "info@gangaguide.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Dasaswamedh Ghat Road",
+    "addressLocality": "Varanasi",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "221001",
+    "addressCountry": "IN"
+  },
+  "openingHours": "Mo-Su 06:00-22:00",
+  "priceRange": "₹₹"
+};
 
 export default function About() {
   const handleWhatsApp = () => {
@@ -20,8 +42,16 @@ export default function About() {
 
   return (
     <div className="min-h-screen pb-20">
+      <SEO
+        title="About Ganga Guides — Local Tour Guides in Varanasi & Ayodhya"
+        description="Meet the Ganga Guides team — local experts born & raised in Varanasi offering authentic spiritual tours. Learn our story, mission & why travelers love us."
+        keywords="about Ganga Guides, Varanasi tour guides, local guides Varanasi, spiritual tour company India"
+        canonicalUrl="https://gangaguide.com/about"
+        jsonLd={aboutSchema}
+      />
+
       <Navigation onBookNowClick={() => scrollToSection("contact")} />
-      
+
       <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
@@ -34,13 +64,13 @@ export default function About() {
               </p>
             </div>
           </FadeInSection>
-          
+
           <div className="max-w-4xl mx-auto mb-16">
             <FadeInSection>
               <p className="text-center text-lg leading-relaxed text-foreground/90 mb-8">
-                GangaGuides was born to connect travelers with the living heritage of Varanasi and nearby sacred cities. 
-                Our guides are locals who have walked these streets, participated in rituals, and understand the stories 
-                behind every temple, ghat, and festival. We believe in small groups, authentic experiences, and creating 
+                GangaGuides was born to connect travelers with the living heritage of Varanasi and nearby sacred cities.
+                Our guides are locals who have walked these streets, participated in rituals, and understand the stories
+                behind every temple, ghat, and festival. We believe in small groups, authentic experiences, and creating
                 memories that stay with you forever.
               </p>
             </FadeInSection>
@@ -49,7 +79,7 @@ export default function About() {
               <div className="bg-accent/30 rounded-lg p-8 mb-8">
                 <h2 className="font-display text-2xl font-bold mb-4">Our Mission</h2>
                 <p className="text-foreground/90 leading-relaxed">
-                  To preserve and share the authentic spiritual and cultural heritage of Kashi through meaningful, 
+                  To preserve and share the authentic spiritual and cultural heritage of Kashi through meaningful,
                   personalized experiences that connect travelers with the soul of this ancient city.
                 </p>
               </div>
@@ -153,6 +183,54 @@ export default function About() {
                 </div>
               </FadeInSection>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 px-4 bg-accent/30">
+        <div className="max-w-4xl mx-auto">
+          <FadeInSection>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-8">
+              Frequently Asked Questions
+            </h2>
+          </FadeInSection>
+
+          <div className="space-y-4">
+            <FadeInSection delay={0.1}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Who are the guides at Ganga Guides?</h3>
+                <p className="text-muted-foreground">All our guides are locals who were born and raised in Varanasi or the specific destination they guide. They have deep personal connections to the temples, rituals, and traditions. Many come from families that have served as temple guides for generations.</p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={0.2}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">How do I book a tour with Ganga Guides?</h3>
+                <p className="text-muted-foreground">You can book easily via WhatsApp by clicking the green button on any page, or fill out our booking form. We respond within 2 hours and work with you to customize your perfect spiritual journey. No advance payment is required for most packages.</p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={0.3}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">What languages do your guides speak?</h3>
+                <p className="text-muted-foreground">Our guides are fluent in English and Hindi. We also have guides who speak French, German, Spanish, and Japanese. Please mention your language preference when booking and we'll match you with the right guide.</p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={0.4}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Can you arrange VIP darshan at temples?</h3>
+                <p className="text-muted-foreground">Yes! We can arrange skip-the-line VIP darshan at major temples including Kashi Vishwanath and Ram Janmabhoomi. We handle all the arrangements so you can focus on your spiritual experience without worrying about long queues.</p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={0.5}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Do you offer customized tours?</h3>
+                <p className="text-muted-foreground">Absolutely! All our packages can be customized based on your interests, schedule, and preferences. Whether you want to focus on photography, ancient traditions, specific temples, or a combination, we'll create a unique itinerary just for you.</p>
+              </div>
+            </FadeInSection>
           </div>
         </div>
       </section>

@@ -85,6 +85,31 @@
       "source": "/sarnath",
       "destination": "/destination/sarnath",
       "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/kashi-darshan",
+      "destination": "/packages/tourist",
+      "permanent": true
+    },
+    {
+      "source": "/ganga-aarti",
+      "destination": "/packages/pooja",
+      "permanent": true
+    },
+    {
+      "source": "/prayagraj",
+      "destination": "/destination/prayagraj",
+      "permanent": true
+    },
+    {
+      "source": "/ujjain",
+      "destination": "/packages",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -9,7 +9,26 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BottomNav from "@/components/BottomNav";
+import SEO from "@/components/SEO";
 import type { Destination } from "@shared/schema";
+
+// Generate TouristAttraction schema for destination
+const generateDestinationSchema = (destination: Destination) => ({
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": destination.name,
+  "description": destination.shortDescription,
+  "url": `https://gangaguide.com/destination/${destination.id}`,
+  "image": destination.mainImage,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": destination.region,
+    "addressRegion": "Uttar Pradesh",
+    "addressCountry": "IN"
+  },
+  "touristType": ["Pilgrimage", "Cultural Tourism", "Heritage Tourism"],
+  "isAccessibleForFree": false
+});
 
 export default function DestinationDetail() {
   const { id } = useParams();
@@ -81,6 +100,15 @@ export default function DestinationDetail() {
 
   return (
     <div className="min-h-screen pb-20">
+      <SEO
+        title={`${destination.name} — Complete Guide | Temples & Sacred Sites | Ganga Guides`}
+        description={destination.shortDescription}
+        keywords={`${destination.name}, ${destination.region} temples, sacred sites ${destination.region}, pilgrimage India, spiritual tourism`}
+        canonicalUrl={`https://gangaguide.com/destination/${destination.id}`}
+        ogImage={destination.mainImage}
+        jsonLd={generateDestinationSchema(destination)}
+      />
+
       <Navigation onBookNowClick={() => setLocation("/#contact")} />
 
       <div className="max-w-6xl mx-auto px-4 py-8 md:py-12">

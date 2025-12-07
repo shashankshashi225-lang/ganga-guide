@@ -8,6 +8,7 @@ import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FadeInSection from "@/components/FadeInSection";
+import SEO from "@/components/SEO";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, Filter } from "lucide-react";
@@ -26,11 +27,11 @@ export default function Destinations() {
   // Filter by region and search
   const filteredDestinations = useMemo(() => {
     return destinations
-      .filter(dest => 
+      .filter(dest =>
         regionFilter === "all" || dest.region === regionFilter
       )
-      .filter(dest => 
-        searchQuery === "" || 
+      .filter(dest =>
+        searchQuery === "" ||
         dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         dest.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
       );
@@ -55,17 +56,24 @@ export default function Destinations() {
 
   return (
     <div className="min-h-screen pb-20">
+      <SEO
+        title="Sacred Destinations Guide — Varanasi, Ayodhya, Sarnath & Prayagraj"
+        description="Explore sacred temples & spiritual sites in Varanasi, Ayodhya, Sarnath & Prayagraj. Complete destination guides with history, timings, and local insights."
+        keywords="Varanasi temples, Ayodhya temples, sacred destinations India, Kashi Vishwanath, Ram Janmabhoomi, spiritual sites"
+        canonicalUrl="https://gangaguide.com/destinations"
+      />
+
       <Navigation onBookNowClick={() => setLocation("/booking")} />
-      
+
       <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
             <div className="text-center mb-12">
               <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Discover Sacred Destinations
+                Sacred Temples & Spiritual Sites in Varanasi & Ayodhya
               </h1>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                Explore temples and sacred sites in Varanasi and Ayodhya through our curated guides
+                India's spiritual heartland stretches along the sacred Ganga, home to some of the world's most ancient and revered pilgrimage sites. Explore our comprehensive guides to temples, ghats, and sacred destinations.
               </p>
             </div>
           </FadeInSection>
@@ -89,7 +97,7 @@ export default function Destinations() {
                 <Filter className="w-4 h-4 text-muted-foreground" />
                 <span className="text-sm font-medium">Filter by Region:</span>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
                 <Badge
                   className={`cursor-pointer ${regionFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}
@@ -189,6 +197,47 @@ export default function Destinations() {
               )}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 px-4 bg-accent/30">
+        <div className="max-w-4xl mx-auto">
+          <FadeInSection>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-8">
+              Destination FAQs
+            </h2>
+          </FadeInSection>
+
+          <div className="space-y-4">
+            <FadeInSection delay={0.1}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Which destination is best for first-time pilgrims?</h3>
+                <p className="text-muted-foreground">Varanasi is ideal for first-time pilgrims as it offers the complete spiritual experience — temple visits, Ganga Aarti, boat rides, and deep cultural immersion. A 2-day trip covers all major sites including Kashi Vishwanath Temple, Dashashwamedh Ghat, and Sarnath.</p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={0.2}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Can I visit both Varanasi and Ayodhya in one trip?</h3>
+                <p className="text-muted-foreground">Yes! Varanasi and Ayodhya are about 200 km apart (4-5 hours by road or 3 hours by train). Our 3-day combined package covers both destinations comfortably with guided tours to Ram Janmabhoomi, Kashi Vishwanath, and all major sacred sites.</p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={0.3}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">What should I wear when visiting temples?</h3>
+                <p className="text-muted-foreground">Modest, traditional clothing is recommended — covered shoulders and knees. Many temples require you to cover your head and remove shoes. We recommend carrying a scarf or dupatta. Our guides will advise you on specific dress codes for each temple before your visit.</p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={0.4}>
+              <div className="bg-background rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">What is the best time to visit these destinations?</h3>
+                <p className="text-muted-foreground">October to March offers the best weather with pleasant temperatures (15-25°C). Festival seasons like Dev Deepawali (November), Maha Shivaratri (February/March), and Ram Navami (April) offer unique spiritual experiences but are more crowded. Monsoon (July-September) has fewer tourists but occasional rain.</p>
+              </div>
+            </FadeInSection>
+          </div>
         </div>
       </section>
 

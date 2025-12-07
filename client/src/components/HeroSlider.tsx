@@ -75,9 +75,15 @@ export default function HeroSlider({ slides, onExploreClick, onWhatsAppClick }: 
 
             <div className="relative h-full flex items-center justify-center px-4 z-20">
               <div className="text-center max-w-4xl">
-                <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight drop-shadow-lg" data-testid="hero-heading">
-                  {slide.heading}
-                </h1>
+                {index === 0 ? (
+                  <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight drop-shadow-lg" data-testid="hero-heading">
+                    {slide.heading}
+                  </h1>
+                ) : (
+                  <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight drop-shadow-lg" data-testid="hero-heading">
+                    {slide.heading}
+                  </h2>
+                )}
                 <p className="font-body text-base md:text-lg lg:text-xl text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-md" data-testid="hero-subheading">
                   {slide.subheading}
                 </p>

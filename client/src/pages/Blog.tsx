@@ -8,6 +8,7 @@ import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FadeInSection from "@/components/FadeInSection";
+import SEO from "@/components/SEO";
 import { Badge } from "@/components/ui/badge";
 import { Filter } from "lucide-react";
 
@@ -35,7 +36,7 @@ export default function Blog() {
   const blogPosts = apiBlogPosts || [];
 
   // Filter blog posts
-  const filteredPosts = blogPosts.filter(post => 
+  const filteredPosts = blogPosts.filter(post =>
     categoryFilter === "all" || post.category === categoryFilter
   );
 
@@ -52,17 +53,24 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen pb-20">
+      <SEO
+        title="Varanasi Travel Blog — Stories, Tips & Spiritual Insights"
+        description="Discover Varanasi through our travel blog. Local insights, temple guides, festival calendars, spiritual experiences & tips for your sacred India journey."
+        keywords="Varanasi travel blog, Varanasi tips, spiritual travel India, Ganga Aarti guide, temple guides Varanasi"
+        canonicalUrl="https://gangaguide.com/blog"
+      />
+
       <Navigation onBookNowClick={() => scrollToSection("contact")} />
-      
+
       <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <FadeInSection>
             <div className="text-center mb-12">
               <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Travel Stories & Insights
+                Varanasi Travel Stories & Spiritual Insights
               </h1>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                Discover the rich culture, heritage, and spiritual wisdom of Varanasi
+                Welcome to the Ganga Guides Blog — your window into the soul of Varanasi, Ayodhya, and India's sacred heartland. Discover authentic stories, practical travel tips, and deep insights into spiritual traditions shared by locals.
               </p>
             </div>
           </FadeInSection>
@@ -73,7 +81,7 @@ export default function Blog() {
               <Filter className="w-4 h-4 text-muted-foreground" />
               <span className="text-sm font-medium">Categories:</span>
             </div>
-            
+
             <div className="flex flex-wrap gap-2">
               <Badge
                 className={`cursor-pointer ${categoryFilter === "all" ? "bg-primary" : "bg-muted hover-elevate"}`}

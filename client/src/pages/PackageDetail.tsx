@@ -9,7 +9,44 @@ import Navigation from "@/components/Navigation";
 import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import SEO from "@/components/SEO";
 import type { Package } from "@shared/schema";
+
+// Generate TouristTrip schema for package
+const generatePackageSchema = (pkg: Package) => ({
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": pkg.name,
+  "description": pkg.shortDescription,
+  "url": `https://gangaguide.com/package/${pkg.id}`,
+  "image": pkg.imageUrl,
+  "touristType": "Pilgrimage",
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": pkg.highlights.map((highlight, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": highlight
+    }))
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": pkg.price || "Contact for price",
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "TravelAgency",
+      "name": "Ganga Guides Network",
+      "url": "https://gangaguide.com"
+    }
+  },
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Ganga Guides Network",
+    "url": "https://gangaguide.com",
+    "telephone": "+91-84680-03094"
+  }
+});
 
 export default function PackageDetail() {
   const { id } = useParams();
@@ -74,8 +111,17 @@ export default function PackageDetail() {
 
   return (
     <div className="min-h-screen pb-20">
+      <SEO
+        title={`${pkg.name} | ${pkg.duration} Tour Package | Ganga Guides`}
+        description={pkg.shortDescription}
+        keywords={`${pkg.name}, ${pkg.destination} tour, Varanasi tour package, spiritual tour India, ${pkg.duration} tour`}
+        canonicalUrl={`https://gangaguide.com/package/${pkg.id}`}
+        ogImage={pkg.imageUrl}
+        jsonLd={generatePackageSchema(pkg)}
+      />
+
       <Navigation onBookNowClick={() => setLocation("/#contact")} />
-      
+
       <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <img
           src={pkg.imageUrl}

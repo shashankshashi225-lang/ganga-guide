@@ -9,7 +9,38 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BottomNav from "@/components/BottomNav";
+import SEO from "@/components/SEO";
 import type { BlogPost } from "@shared/schema";
+
+// Generate Article schema for blog post
+const generateBlogSchema = (blogPost: BlogPost) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": blogPost.title,
+  "description": blogPost.excerpt,
+  "image": blogPost.mainImage,
+  "datePublished": blogPost.publishedDate,
+  "dateModified": blogPost.publishedDate,
+  "author": {
+    "@type": "Organization",
+    "name": "Ganga Guides Network",
+    "url": "https://gangaguide.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ganga Guides Network",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gangaguide.com/attached_assets/1733559867627-GangaGuideLogo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://gangaguide.com/blog/${blogPost.id}`
+  },
+  "articleSection": blogPost.category,
+  "keywords": ["Varanasi", "Spiritual Travel", "India Tourism", blogPost.category]
+});
 
 export default function BlogDetail() {
   const { id } = useParams();
@@ -79,6 +110,16 @@ export default function BlogDetail() {
 
   return (
     <div className="min-h-screen pb-20">
+      <SEO
+        title={`${blogPost.title} | Varanasi Travel Blog | Ganga Guides`}
+        description={blogPost.excerpt}
+        keywords={`${blogPost.category}, Varanasi travel blog, spiritual travel India, ${blogPost.title.split(' ').slice(0, 3).join(' ')}`}
+        canonicalUrl={`https://gangaguide.com/blog/${blogPost.id}`}
+        ogImage={blogPost.mainImage}
+        ogType="article"
+        jsonLd={generateBlogSchema(blogPost)}
+      />
+
       <Navigation onBookNowClick={() => setLocation("/#contact")} />
 
       <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
