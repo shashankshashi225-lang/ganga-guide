@@ -3,6 +3,43 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
   "framework": null,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
+        }
+      ]
+    }
+  ],
   "redirects": [
     {
       "source": "/about-us",
@@ -13,6 +50,41 @@
       "source": "/about-us/",
       "destination": "/about",
       "permanent": true
+    },
+    {
+      "source": "/tours",
+      "destination": "/packages",
+      "permanent": true
+    },
+    {
+      "source": "/tour-packages",
+      "destination": "/packages",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/booking",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/booking",
+      "permanent": true
+    },
+    {
+      "source": "/varanasi",
+      "destination": "/destination/varanasi",
+      "permanent": true
+    },
+    {
+      "source": "/ayodhya",
+      "destination": "/destination/ayodhya",
+      "permanent": true
+    },
+    {
+      "source": "/sarnath",
+      "destination": "/destination/sarnath",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -21,7 +93,7 @@
       "destination": "/api/index.js"
     },
     {
-      "source": "/((?!api|assets).*)",
+      "source": "/((?!api|assets|sitemap.xml|robots.txt).*)",
       "destination": "/index.html"
     }
   ],
