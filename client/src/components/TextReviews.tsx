@@ -75,13 +75,11 @@ export default function TextReviews({ reviews }: TextReviewsProps) {
         >
           <Card className="border border-primary/30 bg-gradient-to-br from-card via-card to-primary/5 shadow-lg overflow-hidden">
             <CardContent className="p-6 md:p-8 relative">
-              {/* Animated background glow */}
-              <motion.div
+              {/* Static background gradient - no animation */}
+              <div
                 className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 pointer-events-none"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 3, repeat: Infinity }}
               />
-              
+
               <div className="flex flex-col gap-4 relative z-10">
                 <motion.div
                   className="flex items-center gap-3"
@@ -102,11 +100,10 @@ export default function TextReviews({ reviews }: TextReviewsProps) {
                         transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
                       >
                         <Star
-                          className={`w-4 h-4 ${
-                            i < featuredReview.rating
-                              ? "text-yellow-500 fill-yellow-500"
-                              : "text-muted stroke-muted-foreground"
-                          }`}
+                          className={`w-4 h-4 ${i < featuredReview.rating
+                            ? "text-yellow-500 fill-yellow-500"
+                            : "text-muted stroke-muted-foreground"
+                            }`}
                         />
                       </motion.div>
                     ))}
@@ -153,7 +150,6 @@ export default function TextReviews({ reviews }: TextReviewsProps) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.9 }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              whileHover={{ scale: 1.05, y: -8 }}
               data-testid={`review-card-${review.id}`}
             >
               <Card className="hover-elevate transition-all duration-300 group cursor-pointer border border-card-border bg-gradient-to-br from-card to-primary/3 h-full">
@@ -170,35 +166,17 @@ export default function TextReviews({ reviews }: TextReviewsProps) {
                     </Badge>
                   </motion.div>
 
-                  <motion.div
-                    className="flex gap-0.5 mb-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.15, duration: 0.3 }}
-                  >
+                  <div className="flex gap-0.5 mb-3">
                     {[...Array(5)].map((_, i) => (
-                      <motion.div
+                      <Star
                         key={i}
-                        animate={{
-                          rotate: i < review.rating ? [0, 10, 0] : 0,
-                        }}
-                        transition={{
-                          delay: 0.2 + i * 0.08,
-                          duration: 0.5,
-                          repeat: Infinity,
-                          repeatDelay: 3,
-                        }}
-                      >
-                        <Star
-                          className={`w-3.5 h-3.5 ${
-                            i < review.rating
-                              ? "text-yellow-500 fill-yellow-500"
-                              : "text-muted stroke-muted-foreground"
+                        className={`w-3.5 h-3.5 ${i < review.rating
+                          ? "text-yellow-500 fill-yellow-500"
+                          : "text-muted stroke-muted-foreground"
                           }`}
-                        />
-                      </motion.div>
+                      />
                     ))}
-                  </motion.div>
+                  </div>
 
                   <motion.p
                     className="text-sm text-foreground/90 line-clamp-3 mb-3 leading-relaxed"
@@ -245,11 +223,10 @@ export default function TextReviews({ reviews }: TextReviewsProps) {
                 setFadeState('in');
               }, 300);
             }}
-            className={`rounded-full transition-all duration-300 ${
-              index === featuredIndex
-                ? "bg-gradient-to-r from-primary to-primary/80"
-                : "bg-gradient-to-r from-muted to-muted/70 hover:from-primary/40 hover:to-primary/30"
-            }`}
+            className={`rounded-full transition-all duration-300 ${index === featuredIndex
+              ? "bg-gradient-to-r from-primary to-primary/80"
+              : "bg-gradient-to-r from-muted to-muted/70 hover:from-primary/40 hover:to-primary/30"
+              }`}
             animate={{
               width: index === featuredIndex ? 24 : 8,
               height: 8,

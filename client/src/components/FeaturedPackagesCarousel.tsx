@@ -40,12 +40,12 @@ export default function FeaturedPackagesCarousel({
       if (scrollContainerRef.current && !isDragging) {
         const container = scrollContainerRef.current;
         let newScrollLeft = container.scrollLeft + cardWidth;
-        
+
         // Reset to beginning when reaching the end of first duplicate set
         if (newScrollLeft >= cardWidth * packages.length * 2) {
           newScrollLeft = cardWidth * packages.length;
         }
-        
+
         container.scrollTo({
           left: newScrollLeft,
           behavior: "smooth",
@@ -118,8 +118,8 @@ export default function FeaturedPackagesCarousel({
           `}</style>
 
           {infinitePackages.map((pkg, index) => {
-            const pkgId = 'id' in pkg && typeof pkg.id === 'string' 
-              ? pkg.id 
+            const pkgId = 'id' in pkg && typeof pkg.id === 'string'
+              ? pkg.id
               : ('id' in pkg ? pkg.id : index);
             const isFlipped = flipped[index] || false;
 
@@ -151,7 +151,7 @@ export default function FeaturedPackagesCarousel({
                   >
                     {/* Front of Card */}
                     <div
-                      style={{ 
+                      style={{
                         backfaceVisibility: "hidden",
                         width: "100%",
                       }}
@@ -166,8 +166,18 @@ export default function FeaturedPackagesCarousel({
                           }
                         }
                         
-                        .carousel-glow {
-                          animation: cardGlow 3s ease-in-out infinite;
+                        /* Only animate glow on desktop - disable on mobile to prevent visual turbulence */
+                        @media (min-width: 768px) {
+                          .carousel-glow {
+                            animation: cardGlow 3s ease-in-out infinite;
+                          }
+                        }
+                        
+                        /* Static shadow on mobile */
+                        @media (max-width: 767px) {
+                          .carousel-glow {
+                            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15), 0 0 20px rgba(255, 107, 53, 0.1);
+                          }
                         }
                       `}</style>
                       <Card className="overflow-hidden border-2 border-card-border shadow-2xl flex flex-col bg-background hover:shadow-3xl transition-shadow carousel-glow">
@@ -186,7 +196,7 @@ export default function FeaturedPackagesCarousel({
                         </div>
 
                         <div className="p-5 flex flex-col gap-3">
-                          <h3 
+                          <h3
                             className="font-display text-lg font-bold text-foreground line-clamp-2"
                             data-testid="text-featured-package-name"
                           >
@@ -229,7 +239,7 @@ export default function FeaturedPackagesCarousel({
 
                     {/* Back of Card (Flipped) */}
                     <div
-                      style={{ 
+                      style={{
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)",
                         position: "absolute",
@@ -278,7 +288,7 @@ export default function FeaturedPackagesCarousel({
                           >
                             View Details
                           </Button>
-                          
+
                           <Button
                             className="w-full bg-primary text-primary-foreground font-semibold text-sm"
                             onClick={(e) => {
