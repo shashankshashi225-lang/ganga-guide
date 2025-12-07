@@ -35,14 +35,16 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white shadow-lg border-b border-border"
+      className="fixed top-0 left-0 right-0 z-40 bg-white shadow-lg border-b border-border"
+      style={{ transform: 'none', animation: 'none', transition: 'none' }}
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-2 md:px-4 py-1 md:py-2">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex-none">
             <button
-              className="flex items-center hover-elevate active-elevate-2 rounded-lg transition-all group"
+              className="flex items-center rounded-lg"
+              style={{ transform: 'none', animation: 'none', transition: 'none' }}
               data-testid="button-logo"
             >
               <img src={logoImage} alt="Ganga Guides Logo" className="h-14 md:h-20 w-auto" />
@@ -111,7 +113,8 @@ export default function Navigation({ onBookNowClick }: NavigationProps) {
             <Button
               onClick={handlePlanJourney}
               size="sm"
-              className="bg-primary text-primary-foreground border border-primary-border font-semibold shadow-lg hover:shadow-xl transition-all text-xs whitespace-nowrap px-3 md:px-4"
+              className="bg-primary text-primary-foreground border border-primary-border font-semibold shadow-lg text-xs whitespace-nowrap px-3 md:px-4"
+              style={{ transform: 'none', animation: 'none', transition: 'none' }}
               data-testid="button-plan-journey"
             >
               Plan Your Journey
