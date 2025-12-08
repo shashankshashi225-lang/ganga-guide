@@ -52,7 +52,67 @@
       "permanent": true
     },
     {
+      "source": "/our-pooja",
+      "destination": "/packages/pooja",
+      "permanent": true
+    },
+    {
+      "source": "/our-pooja/",
+      "destination": "/packages/pooja",
+      "permanent": true
+    },
+    {
+      "source": "/guests-testimonial",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/guests-testimonial/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/find-out-more",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/find-out-more/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/journey-into-the-soul",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/journey-into-the-soul/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/journey-into-the-soul-of-spiritual-india",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/tours",
+      "destination": "/packages",
+      "permanent": true
+    },
+    {
+      "source": "/tours/",
       "destination": "/packages",
       "permanent": true
     },
@@ -62,7 +122,17 @@
       "permanent": true
     },
     {
+      "source": "/tour-packages/",
+      "destination": "/packages",
+      "permanent": true
+    },
+    {
       "source": "/contact",
+      "destination": "/booking",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
       "destination": "/booking",
       "permanent": true
     },
@@ -72,7 +142,17 @@
       "permanent": true
     },
     {
+      "source": "/contact-us/",
+      "destination": "/booking",
+      "permanent": true
+    },
+    {
       "source": "/varanasi",
+      "destination": "/destination/varanasi",
+      "permanent": true
+    },
+    {
+      "source": "/varanasi/",
       "destination": "/destination/varanasi",
       "permanent": true
     },
@@ -82,7 +162,17 @@
       "permanent": true
     },
     {
+      "source": "/ayodhya/",
+      "destination": "/destination/ayodhya",
+      "permanent": true
+    },
+    {
       "source": "/sarnath",
+      "destination": "/destination/sarnath",
+      "permanent": true
+    },
+    {
+      "source": "/sarnath/",
       "destination": "/destination/sarnath",
       "permanent": true
     },
@@ -92,7 +182,17 @@
       "permanent": true
     },
     {
+      "source": "/services/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
       "source": "/kashi-darshan",
+      "destination": "/packages/tourist",
+      "permanent": true
+    },
+    {
+      "source": "/kashi-darshan/",
       "destination": "/packages/tourist",
       "permanent": true
     },
@@ -102,13 +202,58 @@
       "permanent": true
     },
     {
+      "source": "/ganga-aarti/",
+      "destination": "/packages/pooja",
+      "permanent": true
+    },
+    {
       "source": "/prayagraj",
+      "destination": "/destination/prayagraj",
+      "permanent": true
+    },
+    {
+      "source": "/prayagraj/",
       "destination": "/destination/prayagraj",
       "permanent": true
     },
     {
       "source": "/ujjain",
       "destination": "/packages",
+      "permanent": true
+    },
+    {
+      "source": "/ujjain/",
+      "destination": "/packages",
+      "permanent": true
+    },
+    {
+      "source": "/pooja",
+      "destination": "/packages/pooja",
+      "permanent": true
+    },
+    {
+      "source": "/pooja/",
+      "destination": "/packages/pooja",
+      "permanent": true
+    },
+    {
+      "source": "/blogs",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
       "permanent": true
     }
   ],
