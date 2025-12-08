@@ -244,8 +244,15 @@ export default function PackagesLanding() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Activities Section */}
       <section className="py-12 md:py-16 px-4 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <ActivitiesSection />
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-12 md:py-16 px-4 bg-accent/30">
         <div className="max-w-4xl mx-auto">
           <FadeInSection>
             <div className="flex items-center justify-center gap-2 mb-8">
@@ -259,7 +266,7 @@ export default function PackagesLanding() {
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <FadeInSection key={index} delay={index * 0.1}>
-                <div className="bg-accent/30 rounded-lg p-6">
+                <div className="bg-background rounded-lg p-6">
                   <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
                   <p className="text-muted-foreground">{faq.answer}</p>
                 </div>
@@ -269,12 +276,6 @@ export default function PackagesLanding() {
         </div>
       </section>
 
-      {/* Activities Section */}
-      <section className="py-12 md:py-16 px-4 bg-accent/30">
-        <div className="max-w-6xl mx-auto">
-          <ActivitiesSection />
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-12 md:py-16 px-4 bg-primary/10">
