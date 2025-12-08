@@ -1,15 +1,24 @@
-# robots.txt for GangaGuides
+# Robots.txt for GangaGuides
+# https://gangaguide.com
 
-# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
 
-# Disallow crawling of admin or private areas (if any in the future)
-# Disallow: /admin/
-# Disallow: /private/
-
 # Sitemap location
-Sitemap: https://gangaguides.com/sitemap.xml
+Sitemap: https://gangaguide.com/sitemap.xml
 
-# Crawl delay (optional - helps prevent server overload)
+# Disallow admin or API routes
+Disallow: /api/
+
+# Allow all crawlers to access content
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Crawl-delay for less aggressive bots
 Crawl-delay: 1
