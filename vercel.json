@@ -277,6 +277,141 @@
       "permanent": true
     },
     {
+      "source": "/ayodhaya-2-day(/)?",
+      "destination": "/package/2-day-ayodhya-experience",
+      "permanent": true
+    },
+    {
+      "source": "/ayodhya-2-day(/)?",
+      "destination": "/package/2-day-ayodhya-experience",
+      "permanent": true
+    },
+    {
+      "source": "/2-day-ayodhya(/)?",
+      "destination": "/package/2-day-ayodhya-experience",
+      "permanent": true
+    },
+    {
+      "source": "/1-day-kashi(/)?",
+      "destination": "/package/1-day-kashi-darshan",
+      "permanent": true
+    },
+    {
+      "source": "/1-day-kashi-darshan(/)?",
+      "destination": "/package/1-day-kashi-darshan",
+      "permanent": true
+    },
+    {
+      "source": "/kashi-tour(/)?",
+      "destination": "/package/1-day-kashi-darshan",
+      "permanent": true
+    },
+    {
+      "source": "/varanasi-tour(/)?",
+      "destination": "/package/1-day-kashi-darshan",
+      "permanent": true
+    },
+    {
+      "source": "/varanasi-sarnath(/)?",
+      "destination": "/package/varanasi-sarnath-combo",
+      "permanent": true
+    },
+    {
+      "source": "/sarnath-tour(/)?",
+      "destination": "/package/varanasi-sarnath-combo",
+      "permanent": true
+    },
+    {
+      "source": "/3-day-ujjain(/)?",
+      "destination": "/package/3-day-ujjain-retreat",
+      "permanent": true
+    },
+    {
+      "source": "/ujjain-tour(/)?",
+      "destination": "/package/3-day-ujjain-retreat",
+      "permanent": true
+    },
+    {
+      "source": "/ujjain-retreat(/)?",
+      "destination": "/package/3-day-ujjain-retreat",
+      "permanent": true
+    },
+    {
+      "source": "/spiritual-tour(/)?",
+      "destination": "/package/5-day-spiritual-trail",
+      "permanent": true
+    },
+    {
+      "source": "/5-day-tour(/)?",
+      "destination": "/package/5-day-spiritual-trail",
+      "permanent": true
+    },
+    {
+      "source": "/spiritual-trail(/)?",
+      "destination": "/package/5-day-spiritual-trail",
+      "permanent": true
+    },
+    {
+      "source": "/ganga-aarti-pooja(/)?",
+      "destination": "/package/ganga-aarti-temple-pooja",
+      "permanent": true
+    },
+    {
+      "source": "/ram-mandir(/)?",
+      "destination": "/package/ram-janmabhoomi-special-pooja",
+      "permanent": true
+    },
+    {
+      "source": "/ram-janmabhoomi(/)?",
+      "destination": "/package/ram-janmabhoomi-special-pooja",
+      "permanent": true
+    },
+    {
+      "source": "/bhasma-aarti(/)?",
+      "destination": "/package/mahakaleshwar-bhasma-aarti-pooja",
+      "permanent": true
+    },
+    {
+      "source": "/mahakaleshwar(/)?",
+      "destination": "/package/mahakaleshwar-bhasma-aarti-pooja",
+      "permanent": true
+    },
+    {
+      "source": "/dev-deepawali(/)?",
+      "destination": "/package/ganga-mahotsav-dev-deepawali",
+      "permanent": true
+    },
+    {
+      "source": "/ramlila(/)?",
+      "destination": "/package/ramnagar-ramlila",
+      "permanent": true
+    },
+    {
+      "source": "/maha-shivaratri(/)?",
+      "destination": "/package/maha-shivaratri-kashi",
+      "permanent": true
+    },
+    {
+      "source": "/prayagraj-sangam(/)?",
+      "destination": "/package/prayagraj-sangam-pilgrimage",
+      "permanent": true
+    },
+    {
+      "source": "/heritage-walk(/)?",
+      "destination": "/package/varanasi-heritage-walk",
+      "permanent": true
+    },
+    {
+      "source": "/pind-daan(/)?",
+      "destination": "/package/pind-daan-varanasi",
+      "permanent": true
+    },
+    {
+      "source": "/shraddh(/)?",
+      "destination": "/package/pind-daan-varanasi",
+      "permanent": true
+    },
+    {
       "source": "/(.*)/$",
       "destination": "/$1",
       "permanent": true
