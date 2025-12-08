@@ -1,5 +1,5 @@
-import { 
-  type User, 
+import {
+  type User,
   type InsertUser,
   type Destination,
   type InsertDestination,
@@ -308,7 +308,169 @@ export class MemoryStorage implements IStorage {
         featured: true,
         isVisible: true,
       },
+      // NEW PACKAGES
+      {
+        id: "varanasi-sarnath-combo",
+        name: "Varanasi + Sarnath 2-Day Combo",
+        category: "touristic",
+        duration: "2 Days",
+        destination: "Varanasi",
+        shortDescription: "Experience the spiritual capital of Hinduism and the birthplace of Buddhism in one comprehensive journey.",
+        highlights: [
+          "Complete Kashi Vishwanath darshan",
+          "Sarnath Buddhist pilgrimage",
+          "Ganga sunrise boat ride",
+          "Evening Ganga Aarti experience",
+        ],
+        imageUrl: "/generated_images/Sarnath_Buddhist_stupa_sunset_888b3275.png",
+        detailedDescription: "Combine the spiritual energy of Varanasi with the peaceful serenity of Sarnath in this comprehensive 2-day tour. Perfect for travelers seeking to understand India's rich spiritual heritage spanning Hinduism and Buddhism.\n\nDay 1: Begin with a sunrise boat ride on the Ganges, followed by breakfast at a traditional restaurant. Visit Kashi Vishwanath Temple with skip-line access, explore the ancient lanes of the old city, and witness the grand evening Ganga Aarti at Dashashwamedh Ghat.\n\nDay 2: Morning drive to Sarnath (30 minutes), where Buddha gave his first sermon. Visit Dhamek Stupa, the Ashoka Pillar, Mulagandhakuti Vihara, and the archaeological museum. Return to Varanasi for lunch before departure.\n\nIncludes: 3-star accommodation, all meals, boat ride, temple darshan, Sarnath entry fees, guide services, and transportation.",
+        price: 6500,
+        featured: true,
+        isVisible: true,
+      },
+      {
+        id: "5-day-spiritual-trail",
+        name: "5-Day Varanasi-Ayodhya-Prayagraj Trail",
+        category: "touristic",
+        duration: "5 Days",
+        destination: "Varanasi",
+        shortDescription: "The ultimate spiritual journey covering three of India's holiest cities with local expert guides.",
+        highlights: [
+          "Varanasi temple circuit",
+          "Ayodhya Ram Janmabhoomi",
+          "Prayagraj Triveni Sangam",
+          "Multiple Ganga Aarti experiences",
+        ],
+        imageUrl: "/generated_images/Prayagraj_Triveni_Sangam_confluence_c12597e6.png",
+        detailedDescription: "Embark on the complete spiritual odyssey through three of India's most sacred cities. This 5-day journey covers all major pilgrimage sites with comfortable travel and expert guidance.\n\nDay 1-2: Varanasi - Ganga Aarti, Kashi Vishwanath Temple, boat rides, heritage walks, and Sarnath visit.\n\nDay 3: Travel to Ayodhya (4 hours) - Ram Janmabhoomi Temple, Hanuman Garhi, and Saryu Aarti.\n\nDay 4: Ayodhya exploration - Kanak Bhawan, Dashrath Bhavan, and local temple circuit. Evening travel to Prayagraj (3 hours).\n\nDay 5: Prayagraj - Early morning Triveni Sangam holy dip at the sacred confluence of Ganga, Yamuna, and Saraswati. Visit Hanuman Temple and Akshaya Vat before departure.\n\nIncludes: 4-star accommodation, all meals, AC vehicle, boat rides, temple darshan, guide services, and all entry fees.",
+        price: 25000,
+        featured: true,
+        isVisible: true,
+      },
+      {
+        id: "ram-navami-ayodhya",
+        name: "Ram Navami Festival - Ayodhya",
+        category: "popular_event",
+        duration: "3 Days",
+        destination: "Ayodhya",
+        shortDescription: "Celebrate Lord Rama's birthday at his birthplace with magnificent celebrations and special rituals.",
+        highlights: [
+          "Ram Janmabhoomi special darshan",
+          "Grand processions and celebrations",
+          "Cultural performances",
+          "Special prasad distribution",
+        ],
+        imageUrl: "/generated_images/Ayodhya_Ram_Mandir_temple_baae3de1.png",
+        detailedDescription: "Experience the most important festival of Ayodhya - Ram Navami - celebrating the birth of Lord Rama. The entire city transforms into a celebration of devotion, music, and color.\n\nDay 1: Arrive in Ayodhya, check-in, and attend the grand Ram Navami eve celebrations with bhajans and cultural programs that continue through the night.\n\nDay 2 (Ram Navami): Early morning special darshan at Ram Janmabhoomi during the auspicious hour. Witness the grand abhishek ceremony, participate in the city-wide celebrations, and join thousands of devotees in processions. Special prasad lunch.\n\nDay 3: Visit remaining temples - Hanuman Garhi, Kanak Bhawan, and enjoy the post-festival serenity before departure.\n\nIncludes: Premium accommodation, all meals, VIP temple access, guide services, and festival special arrangements.",
+        price: 12000,
+        featured: true,
+        isVisible: true,
+      },
+      {
+        id: "varanasi-heritage-walk",
+        name: "Varanasi Heritage Walk Experience",
+        category: "touristic",
+        duration: "Half Day",
+        destination: "Varanasi",
+        shortDescription: "Explore the ancient lanes, hidden temples, and living traditions of the world's oldest city on foot.",
+        highlights: [
+          "Ancient temple discoveries",
+          "Artisan workshops visit",
+          "Traditional Banarasi food tasting",
+          "Photography opportunities",
+        ],
+        imageUrl: "/generated_images/varanasi_heritage_walk.png",
+        detailedDescription: "Discover the soul of Varanasi on foot through this immersive heritage walk. Led by locals who were born in these very lanes, this walk takes you beyond tourist spots to the real, living Varanasi.\n\nStart at sunrise when the city awakens. Walk through lanes that are thousands of years old, where every corner has a story. Visit hidden temples unknown to standard tourists, see traditional silk weavers at work, peek into akhadas (wrestling schools), and taste authentic Banarasi street food.\n\nYour guide shares stories passed down through generations, explaining the significance of every ritual, every deity, and every tradition. This is not just a walk—it's a journey through living history.\n\nIncludes: Expert local guide, all food tastings, temple offerings, and photo assistance.",
+        price: 1500,
+        featured: true,
+        isVisible: true,
+      },
+      {
+        id: "prayagraj-sangam-pilgrimage",
+        name: "Prayagraj Sangam Pilgrimage",
+        category: "touristic",
+        duration: "1 Day",
+        destination: "Prayagraj",
+        shortDescription: "Experience the sacred confluence of three holy rivers - Ganga, Yamuna, and invisible Saraswati.",
+        highlights: [
+          "Triveni Sangam holy dip",
+          "Boat ride to confluence point",
+          "Akshaya Vat and Hanuman Temple",
+          "Annapurna Temple visit",
+        ],
+        imageUrl: "/generated_images/Prayagraj_Triveni_Sangam_confluence_c12597e6.png",
+        detailedDescription: "Prayagraj (formerly Allahabad) is where three sacred rivers meet - the visible Ganga and Yamuna, and the invisible mythical Saraswati. A dip at this Triveni Sangam is believed to wash away all sins.\n\nEarly morning: Boat ride to the exact confluence point where you can see the different colors of Ganga (blue) and Yamuna (green) meeting. Take a ritual holy dip assisted by local pandas who perform traditional prayers.\n\nMid-morning: Visit the ancient Patalpuri Temple complex inside Allahabad Fort to see the immortal Akshaya Vat (banyan tree) and pay respects at the Patalpuri Temple.\n\nAfternoon: Visit the famous Hanuman Temple, Annapurna Temple, and explore the historic city before return journey.\n\nIncludes: Boat ride, all temple visits, priest assistance, lunch, guide services, and transportation from Varanasi.",
+        price: 3500,
+        featured: true,
+        isVisible: true,
+      },
+      {
+        id: "pind-daan-varanasi",
+        name: "Pind Daan & Shraddh Ceremony - Varanasi",
+        category: "pooja",
+        duration: "1 Day",
+        destination: "Varanasi",
+        shortDescription: "Conduct sacred rituals for departed souls with experienced priests at the holiest ghats.",
+        highlights: [
+          "Expert priest guidance",
+          "Ganga-side ritual performance",
+          "Tarpan and Pind Daan ceremony",
+          "Complete Shraddh arrangements",
+        ],
+        imageUrl: "/generated_images/varanasi_ganga_aarti.png",
+        detailedDescription: "Pind Daan performed at Varanasi is considered the most sacred ritual for the peace of departed souls. Our experienced priests guide you through this important ceremony with reverence and authenticity.\n\nThe ritual begins with Sankalp (sacred resolution) at the ghat, followed by Tarpan (water offerings to ancestors). The main Pind Daan ceremony involves offering rice balls to ancestors, accompanied by specific mantras for their liberation.\n\nOur priests speak English and Hindi, explaining each step and its significance. We handle all arrangements - from ritual materials to prasad - ensuring you can focus entirely on the spiritual aspect.\n\nMany families travel from abroad specifically for this purpose. We understand the emotional significance and ensure a respectful, meaningful experience.\n\nIncludes: All ritual materials, experienced Brahmin priest, Ganga offerings, prasad, and assistance throughout the day.",
+        price: 5500,
+        featured: true,
+        isVisible: true,
+      },
     ];
+
+    // Add new destinations
+    const additionalDestinations: Destination[] = [
+      {
+        id: "sarnath",
+        name: "Sarnath",
+        shortDescription: "Walk where Buddha first taught, explore ancient stupas, and experience the birthplace of Buddhism.",
+        description: "Sarnath, just 10 kilometers from Varanasi, is where Gautama Buddha delivered his first sermon after attaining enlightenment. This sacred Buddhist pilgrimage site is home to ancient stupas, monasteries, and the famous Ashoka Pillar.\n\nThe Dhamek Stupa stands 43 meters tall, marking the spot where Buddha first taught the Dharma. The archaeological museum houses the original Ashoka Lion Capital - India's national emblem. Japanese, Thai, and Tibetan temples add an international spiritual dimension.\n\nSarnath offers a peaceful contrast to busy Varanasi. Walk through the serene deer park, meditate at ancient ruins, and connect with 2,500 years of Buddhist history. The site attracts Buddhist pilgrims from around the world, especially on Buddha Purnima.",
+        mainImage: "/generated_images/Sarnath_Buddhist_stupa_sunset_888b3275.png",
+        image2: null,
+        image3: null,
+        image4: null,
+        region: "Varanasi",
+        featured: true,
+        isVisible: true,
+      },
+      {
+        id: "prayagraj",
+        name: "Prayagraj",
+        shortDescription: "Experience the sacred Triveni Sangam where three holy rivers merge into one.",
+        description: "Prayagraj, formerly known as Allahabad, is one of the holiest cities in Hinduism. Here, the sacred rivers Ganga and Yamuna visibly meet, while the mythical Saraswati is believed to join them underground, creating the Triveni Sangam.\n\nEvery 12 years, Prayagraj hosts the Maha Kumbh Mela - the largest religious gathering on Earth. The confluence is considered so sacred that a single dip here is said to wash away all sins. The ancient Patalpuri Temple and immortal Akshaya Vat tree inside the Allahabad Fort are must-visits.\n\nThe city also holds historical significance - it's where Mahatma Gandhi lived at Anand Bhawan, now a museum. The blend of spiritual and historical importance makes Prayagraj an essential stop on the spiritual trail.",
+        mainImage: "/generated_images/Prayagraj_Triveni_Sangam_confluence_c12597e6.png",
+        image2: null,
+        image3: null,
+        image4: null,
+        region: "Prayagraj",
+        featured: true,
+        isVisible: true,
+      },
+      {
+        id: "chitrakoot",
+        name: "Chitrakoot",
+        shortDescription: "Discover where Lord Rama spent his exile years in this peaceful hill station of the gods.",
+        description: "Chitrakoot, meaning 'Hill of Many Wonders', is where Lord Rama spent 11 of his 14 years of exile. This serene destination straddles the border of Uttar Pradesh and Madhya Pradesh, offering a unique blend of natural beauty and spiritual significance.\n\nThe Kamadgiri hill is considered the wish-fulfilling mountain - pilgrims circumambulate it barefoot seeking blessings. Ram Ghat on the Mandakini River is where Rama, Sita, and Lakshman bathed. The Sphatik Shila bears the footprint impression of Sita.\n\nGupt Godavari features two caves with a perennial stream inside. Hanuman Dhara, accessed by climbing 360 steps, is where Hanuman lived while serving Rama. Bharat Milap Temple marks the emotional reunion spot of Rama and Bharat.\n\nChitrakoot offers a tranquil alternative to busier pilgrimage sites - perfect for those seeking deeper connection with the Ramayana.",
+        mainImage: "/generated_images/Ayodhya_spiritual_trail_dusk_b641daa9.png",
+        image2: null,
+        image3: null,
+        image4: null,
+        region: "Chitrakoot",
+        featured: false,
+        isVisible: true,
+      },
+    ];
+
+    // Merge additional destinations
+    destinationsData.push(...additionalDestinations);
+
 
     const panchangEventsData: PanchangEvent[] = [
       {
@@ -430,15 +592,15 @@ export class MemoryStorage implements IStorage {
 
   async createDestination(destination: InsertDestination): Promise<Destination> {
     const id = this.generateId();
-    const newDestination: Destination = { 
-      id, 
-      isVisible: true, 
-      featured: false, 
+    const newDestination: Destination = {
+      id,
+      isVisible: true,
+      featured: false,
       image2: destination.image2 ?? null,
       image3: destination.image3 ?? null,
       image4: destination.image4 ?? null,
       region: destination.region ?? null,
-      ...destination 
+      ...destination
     };
     this.destinations.set(id, newDestination);
     return newDestination;
@@ -470,14 +632,14 @@ export class MemoryStorage implements IStorage {
 
   async createBlogPost(blogPost: InsertBlogPost): Promise<BlogPost> {
     const id = this.generateId();
-    const newBlogPost: BlogPost = { 
-      id, 
-      isVisible: true, 
-      featured: false, 
+    const newBlogPost: BlogPost = {
+      id,
+      isVisible: true,
+      featured: false,
       image2: blogPost.image2 ?? null,
       image3: blogPost.image3 ?? null,
       image4: blogPost.image4 ?? null,
-      ...blogPost 
+      ...blogPost
     };
     this.blogPosts.set(id, newBlogPost);
     return newBlogPost;
@@ -509,13 +671,13 @@ export class MemoryStorage implements IStorage {
 
   async createPackage(pkg: InsertPackage): Promise<Package> {
     const id = this.generateId();
-    const newPackage: Package = { 
-      id, 
-      isVisible: true, 
-      featured: false, 
+    const newPackage: Package = {
+      id,
+      isVisible: true,
+      featured: false,
       destination: pkg.destination ?? null,
       price: pkg.price ?? null,
-      ...pkg 
+      ...pkg
     };
     this.packages.set(id, newPackage);
     return newPackage;
@@ -554,12 +716,12 @@ export class MemoryStorage implements IStorage {
 
   async createPanchangEvent(event: InsertPanchangEvent): Promise<PanchangEvent> {
     const id = this.generateId();
-    const newEvent: PanchangEvent = { 
-      id, 
-      isVisible: true, 
-      featured: false, 
+    const newEvent: PanchangEvent = {
+      id,
+      isVisible: true,
+      featured: false,
       significance: event.significance ?? null,
-      ...event 
+      ...event
     };
     this.panchangEvents.set(id, newEvent);
     return newEvent;
@@ -595,14 +757,14 @@ export class MemoryStorage implements IStorage {
 
   async createVideoTestimonial(testimonial: InsertVideoTestimonial): Promise<VideoTestimonial> {
     const id = this.generateId();
-    const newTestimonial: VideoTestimonial = { 
-      id, 
-      isVisible: true, 
-      featured: false, 
+    const newTestimonial: VideoTestimonial = {
+      id,
+      isVisible: true,
+      featured: false,
       embedCode: testimonial.embedCode ?? null,
       caption: testimonial.caption ?? null,
       author: testimonial.author ?? null,
-      ...testimonial 
+      ...testimonial
     };
     this.videoTestimonials.set(id, newTestimonial);
     return newTestimonial;
@@ -630,15 +792,15 @@ export class MemoryStorage implements IStorage {
 
   async createBooking(booking: InsertBooking): Promise<Booking> {
     const id = this.generateId();
-    const newBooking: Booking = { 
-      id, 
+    const newBooking: Booking = {
+      id,
       createdAt: new Date(),
       packageId: booking.packageId || null,
       packageName: booking.packageName || null,
       preferredDate: booking.preferredDate || null,
       numberOfPeople: booking.numberOfPeople || null,
       message: booking.message || null,
-      ...booking 
+      ...booking
     };
     this.bookings.set(id, newBooking);
     return newBooking;
