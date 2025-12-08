@@ -255,6 +255,31 @@
       "source": "/home/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/blogs/(.*)",
+      "destination": "/blog/$1",
+      "permanent": true
+    },
+    {
+      "source": "/destinations/(.*)",
+      "destination": "/destination/$1",
+      "permanent": true
+    },
+    {
+      "source": "/gallery(/)?",
+      "destination": "/destinations",
+      "permanent": true
+    },
+    {
+      "source": "/faq(/)?",
+      "destination": "/packages",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)/$",
+      "destination": "/$1",
+      "permanent": true
     }
   ],
   "rewrites": [
